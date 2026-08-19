@@ -1,0 +1,32 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+issueTrackerURL = "https://github.com/Krylo-60/BlueprintMaster/issues"
+license = "GPL-3.0"
+
+[[mods]]
+modId = "blueprintmaster"
+version = "1.0.0"
+displayName = "BlueprintMaster"
+authors = "Krylo_plays"
+displayURL = "https://krishivstudios.github.io"
+logoFile = "assets/blueprintmaster/textures/icon.png"
+description = '''
+3D holographic structure blueprints, starter architecture presets, material shopping calculator, and singleplayer easy-build assist!
+'''
+
+[[dependencies.blueprintmaster]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.blueprintmaster]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[mixins]]
+config = "blueprintmaster.mixins.json"
