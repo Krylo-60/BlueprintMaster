@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "blueprintmaster",
-  "version": "${version}",
+  "version": "1.1.0",
   "name": "BlueprintMaster — The Ultimate Builder's Hologram Suite",
   "description": "3D holographic structure blueprints, starter architecture presets, material shopping calculator, and singleplayer easy-build assist!",
   "authors": [

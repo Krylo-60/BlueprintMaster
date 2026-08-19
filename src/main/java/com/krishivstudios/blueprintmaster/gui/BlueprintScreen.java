@@ -64,7 +64,13 @@ public class BlueprintScreen extends Screen {
             showMaterials = !showMaterials;
         }).dimensions(centerX - 130, centerY + 5, 125, 20).build());
 
-        // 6. Easy Build (Solo Singleplayer Only)
+        // 6. Hologram Theme Color Cycle (NEW in v1.1.0)
+        this.addDrawableChild(ButtonWidget.builder(Text.literal("🎨 " + HologramRenderer.getColor().displayName), b -> {
+            HologramRenderer.cycleColor();
+            this.clearAndInit();
+        }).dimensions(centerX + 5, centerY + 5, 125, 20).build());
+
+        // 7. Easy Build (Solo Singleplayer Only)
         String easyText = FairPlaySafetyManager.isAutoPlaceAllowed()
             ? (SingleplayerBuilder.isEasyBuildEnabled() ? "⚡ Easy-Build: ON" : "⚡ Easy-Build: OFF")
             : "🔒 Easy-Build (Solo Only)";
@@ -76,12 +82,12 @@ public class BlueprintScreen extends Screen {
             } else {
                 FairPlaySafetyManager.notifyMultiplayerFairPlay();
             }
-        }).dimensions(centerX + 5, centerY + 5, 125, 20).build());
+        }).dimensions(centerX - 130, centerY + 35, 125, 20).build());
 
-        // 7. Close Button
+        // 8. Close Button
         this.addDrawableChild(ButtonWidget.builder(Text.literal("✔ Done"), b -> {
             this.close();
-        }).dimensions(centerX - 60, centerY + 45, 120, 20).build());
+        }).dimensions(centerX + 5, centerY + 35, 125, 20).build());
     }
 
     @Override
