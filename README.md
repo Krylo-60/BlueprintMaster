@@ -29,7 +29,7 @@
   - 🟢 **Available in Inventory** (Green checkmark)
   - 🔴 **Missing Items** (Red count with exact quantities needed)
 
-### 🏡 Built-in Starter Architecture Library (`B`)
+### 🏡 Built-in Starter Architecture Library (`P`)
 - Includes pre-loaded architectural presets:
   - 🏠 **Cozy Survival Cottage** (7x5x7 Starter timber house)
   - 🌾 **Compact Auto-Crop Farm** (9x3x9 Automated water farm)
@@ -50,7 +50,7 @@
 
 | Keybind | Action | Description |
 | :--- | :--- | :--- |
-| **`B`** | **Blueprint Menu** | Open preset selector, rotation, and placement controls |
+| **`P`** | **Blueprint Planner Menu** | Open preset selector, rotation, and placement controls |
 | **`M`** | **Material List** | Toggle the live required materials shopping list HUD |
 | **`H`** | **Toggle Hologram** | Toggle 3D hologram projection ON / OFF |
 

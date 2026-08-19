@@ -21,7 +21,7 @@ public class BlueprintMasterClient implements ClientModInitializer {
         blueprintMenuKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
             "key.blueprintmaster.menu",
             InputUtil.Type.KEYSYM,
-            GLFW.GLFW_KEY_B,
+            GLFW.GLFW_KEY_P,
             "category.blueprintmaster"
         ));
 
