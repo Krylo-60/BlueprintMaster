@@ -14,7 +14,7 @@
   },
   "license": "GPL-3.0",
   "icon": "assets/blueprintmaster/textures/icon.png",
-  "environment": "*",
+  "environment": "client",
   "entrypoints": {
     "main": [
       "com.krishivstudios.blueprintmaster.BlueprintMaster"
