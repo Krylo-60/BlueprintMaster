@@ -5,7 +5,6 @@
 
   <p>
     <a href="https://modrinth.com/mod/blueprintmaster"><img src="https://img.shields.io/badge/Modrinth-Available%20Now-00AF5C?style=for-the-badge&logo=modrinth" alt="Modrinth" /></a>
-    <a href="https://curseforge.com"><img src="https://img.shields.io/badge/CurseForge-Available%20Now-F16436?style=for-the-badge&logo=curseforge" alt="CurseForge" /></a>
     <a href="https://github.com/Krylo-60/BlueprintMaster"><img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github" alt="GitHub" /></a>
     <a href="https://krishivstudios.github.io"><img src="https://img.shields.io/badge/Website-Krishiv%20Studios-00f2ff?style=for-the-badge&logo=googlechrome" alt="Website" /></a>
     <a href="https://discord.gg/2hSXQKHvvX"><img src="https://img.shields.io/badge/Discord-Join%20Community-5865f2?style=for-the-badge&logo=discord" alt="Discord" /></a>
@@ -14,7 +13,22 @@
 
 ---
 
-**The modern, lightweight, and ban-safe 3D holographic structure planning suite for Minecraft (1.20 – 26.3) on Fabric & NeoForge!**
+**The modern, lightweight, and ban-safe 3D holographic structure planning suite for Minecraft (1.20 – 26.3 Snapshots) on Fabric & NeoForge!**
+
+---
+
+## 🆕 What's New in 26.3 / Latest Update (v1.1.0)
+
+- **26.3 & 26.3-snapshot Support**: Full rendering support for 3D holographic structure blueprints in Minecraft 26.3 snapshot.
+- **Improved HUD Shopping Calculator**: Real-time accurate block inventory counts.
+- **Lunar Client Compatibility**: Smooth 60 FPS ghost rendering on Lunar Client and vanilla Fabric.
+
+---
+
+## 📥 Downloads & Links
+
+- **Modrinth Downloads**: [BlueprintMaster on Modrinth](https://modrinth.com/mod/blueprintmaster)
+- **Source Code**: [Krylo-60 / BlueprintMaster GitHub](https://github.com/Krylo-60/BlueprintMaster)
 
 ---
 
@@ -37,7 +51,7 @@
   - 🛡️ **Medieval Defense Watchtower** (5x9x5 Stone outpost)
 
 ### 🔄 1-Click Rotate & Nudge
-- Rotate blueprints $90^\circ$ around their vertical axis with 1 click.
+- Rotate blueprints 90° around their vertical axis with 1 click.
 - Nudge coordinates up, down, left, and right to align with your terrain.
 
 ### 🛡️ Smart Multiplayer Fair-Play Protection

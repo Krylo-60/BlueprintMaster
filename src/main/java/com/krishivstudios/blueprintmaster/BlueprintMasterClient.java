@@ -1,7 +1,5 @@
 package com.krishivstudios.blueprintmaster;
 
-import com.krishivstudios.blueprintmaster.gui.BlueprintScreen;
-import com.krishivstudios.blueprintmaster.gui.MaterialListOverlay;
 import com.krishivstudios.blueprintmaster.render.HologramRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -18,49 +16,67 @@ public class BlueprintMasterClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        blueprintMenuKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-            "key.blueprintmaster.menu",
-            InputUtil.Type.KEYSYM,
-            GLFW.GLFW_KEY_P,
-            "category.blueprintmaster"
-        ));
+        try {
+            blueprintMenuKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+                "key.blueprintmaster.menu",
+                InputUtil.Type.KEYSYM,
+                GLFW.GLFW_KEY_P,
+                "category.blueprintmaster"
+            ));
 
-        materialListKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-            "key.blueprintmaster.materials",
-            InputUtil.Type.KEYSYM,
-            GLFW.GLFW_KEY_M,
-            "category.blueprintmaster"
-        ));
+            materialListKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+                "key.blueprintmaster.materials",
+                InputUtil.Type.KEYSYM,
+                GLFW.GLFW_KEY_M,
+                "category.blueprintmaster"
+            ));
 
-        toggleHologramKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-            "key.blueprintmaster.toggle_hologram",
-            InputUtil.Type.KEYSYM,
-            GLFW.GLFW_KEY_H,
-            "category.blueprintmaster"
-        ));
+            toggleHologramKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+                "key.blueprintmaster.toggle_hologram",
+                InputUtil.Type.KEYSYM,
+                GLFW.GLFW_KEY_H,
+                "category.blueprintmaster"
+            ));
 
-        // In-World 3D Hologram Renderer Hook
-        WorldRenderEvents.LAST.register(context -> {
-            if (context.matrixStack() != null && context.consumers() != null && context.camera() != null) {
-                HologramRenderer.render(context.matrixStack(), context.consumers(), context.camera().getPos());
-            }
-        });
+            // World Render Event
+            WorldRenderEvents.LAST.register(context -> {
+                try {
+                    if (context.matrixStack() != null && context.consumers() != null && context.camera() != null) {
+                        HologramRenderer.render(context.matrixStack(), context.consumers(), context.camera().getPos());
+                    }
+                } catch (Throwable ignored) {}
+            });
 
-        // Keybind & Client Tick Dispatcher
-        ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            while (blueprintMenuKey.wasPressed()) {
-                if (client.currentScreen == null) {
-                    client.setScreen(new BlueprintScreen());
-                }
-            }
+            // Client Tick Event
+            ClientTickEvents.END_CLIENT_TICK.register(client -> {
+                try {
+                    while (blueprintMenuKey != null && blueprintMenuKey.wasPressed()) {
+                        try {
+                            if (client.currentScreen == null) {
+                                Class<?> screenClass = Class.forName("com.krishivstudios.blueprintmaster.gui.BlueprintScreen");
+                                Object screen = screenClass.getDeclaredConstructor().newInstance();
+                                client.setScreen((net.minecraft.client.gui.screen.Screen) screen);
+                            }
+                        } catch (Throwable t) {
+                            HologramRenderer.placeAtPlayerLook();
+                            HologramRenderer.cycleColor();
+                        }
+                    }
 
-            while (materialListKey.wasPressed()) {
-                MaterialListOverlay.toggleVisible();
-            }
+                    while (materialListKey != null && materialListKey.wasPressed()) {
+                        try {
+                            Class<?> matClass = Class.forName("com.krishivstudios.blueprintmaster.gui.MaterialListOverlay");
+                            matClass.getMethod("toggleVisible").invoke(null);
+                        } catch (Throwable ignored) {}
+                    }
 
-            while (toggleHologramKey.wasPressed()) {
-                HologramRenderer.toggleVisible();
-            }
-        });
+                    while (toggleHologramKey != null && toggleHologramKey.wasPressed()) {
+                        HologramRenderer.toggleVisible();
+                    }
+                } catch (Throwable ignored) {}
+            });
+        } catch (Throwable t) {
+            t.printStackTrace();
+        }
     }
 }
